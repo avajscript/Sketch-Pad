@@ -12,19 +12,24 @@ body {
   font-family: Lobster;
 }
 h1 {
-  font-size: 3em;
+  font-size: 3.5em;
+}
+h2 {
+  font-size: 2em;
 }
 
 .whole-page {
   background-color: #f8f9fa;
   width: 100%;
   height: 100vh;
+  text-align: center;
 }
 
 .sidebar {
   position: absolute;
   left: 0;
   width: 15%;
+  min-width: 175px;
   height: 100vh;
   background-color: #212529;
   color: #e9ecef;
@@ -46,6 +51,9 @@ h1 {
   top: 0;
   height: 100%;
 }
+.active {
+  display: none;
+}
 ul.dropdown {
   list-style-type: none;
   border: none;
@@ -64,6 +72,19 @@ ul.dropdown {
   color: #e9ecef;
   text-align: center;
 }
+#change-size {
+  display: inline-block;
+  margin-top: 7em;
+  border: 4px solid #212529;
+  padding: 10px 15px;
+  box-shadow: 0px 0px 10px 5px #6c757d;
+  cursor: pointer;
+}
+
+#change-size:active {
+  border: 4px inset white;
+  box-shadow: none;
+}
 .container {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
@@ -71,7 +92,7 @@ ul.dropdown {
   width: calc(var(--block-dimension) * 16);
   height: calc(var(--block-dimension) * 16);
   margin: auto;
-  padding-top: 7em; /* remove*/
+  padding-top: 5em; /* remove*/
 }
 
 .block {
@@ -95,4 +116,10 @@ li {
 }
 .yellow {
   color: #ffd60a;
+}
+#size {
+  font-size: 16px;
+  text-align: center;
+  width: 205px;
+  padding: 5px;
 }

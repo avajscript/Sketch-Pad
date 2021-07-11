@@ -9,6 +9,10 @@ window.addEventListener("DOMContentLoaded", function () {
     red: "#ef233c",
     orange: "#fb5607",
   };
+
+  document.getElementById("color").addEventListener("click", () => {
+    document.querySelector(".dropdown").classList.toggle("active");
+  });
   (function () {
     // colors the color dropdown items
     var childIteration = 0;
@@ -30,7 +34,9 @@ window.addEventListener("DOMContentLoaded", function () {
       });
     }
   })();
-  (function () {
+  function changeGridSize() {
+    const 
+    if ()
     for (let i = 0; i < gridBlocks; i++) {
       const block = document.createElement("div"); //create block
       block.addEventListener("mouseover", fillBlock);
@@ -40,7 +46,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const container = document.querySelector(".container"); //add to parent
       container.appendChild(block);
     }
-  })();
+  }
 
   function fillBlock(event) {
     const block = document.getElementById(event.target.id);
@@ -53,11 +59,13 @@ window.addEventListener("DOMContentLoaded", function () {
       block.style.backgroundColor = "white";
     }
   }
-
+  changeGridSize();
   // Adding event listeners
   const clearButton = document.getElementById("clear");
   const eraserButton = document.getElementById("eraser");
+  const changeSizeButton = document.getElementById("change-size");
 
   //eraserButton.addEventListener("click", eraser);
   clearButton.addEventListener("click", clearScreen);
+  changeSizeButton.addEventListener("click", changeGridSize);
 });

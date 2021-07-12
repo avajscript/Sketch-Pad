@@ -1,5 +1,6 @@
 window.addEventListener("DOMContentLoaded", function () {
-  const gridBlocks = 256;
+  var gridBlocks = 256;
+  const gridWidthHeight = 640;
   var currentColor = "green";
   const colors = {
     yellow: "#ffd60a",
@@ -35,12 +36,28 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   })();
   function changeGridSize() {
-    const 
-    if ()
+    let gridSize = document.getElementById("size").value;
+    const blockContainer = document.querySelector(".container");
+
+    if (gridSize != "") {
+      while (blockContainer.firstChild) {
+        blockContainer.removeChild(blockContainer.firstChild);
+      }
+      var widthHeight = gridWidthHeight / gridSize;
+      console.log(widthHeight);
+      gridSize *= gridSize;
+      gridBlocks = gridSize;
+      console.log(gridBlocks);
+    }
+
     for (let i = 0; i < gridBlocks; i++) {
       const block = document.createElement("div"); //create block
       block.addEventListener("mouseover", fillBlock);
-      block.classList.add("block");
+      block.style.width = widthHeight;
+      block.style.height = widthHeight;
+      block.style.backgroundColor = "white";
+      block.style.border = "1px solid black";
+
       block.setAttribute("id", `block-${i + 1}`);
 
       const container = document.querySelector(".container"); //add to parent

@@ -2,6 +2,7 @@ window.addEventListener("DOMContentLoaded", function () {
   var gridBlocks = 256;
   const gridWidthHeight = 640;
   var currentColor = "green";
+  var widthHeight = 40;
   const colors = {
     yellow: "#ffd60a",
     green: "#009d4e",
@@ -40,10 +41,14 @@ window.addEventListener("DOMContentLoaded", function () {
     const blockContainer = document.querySelector(".container");
 
     if (gridSize != "") {
+      if (gridSize < 1 || gridSize > 64) {
+        alert("Please type a valid number :(");
+        return;
+      }
       while (blockContainer.firstChild) {
         blockContainer.removeChild(blockContainer.firstChild);
       }
-      var widthHeight = gridWidthHeight / gridSize;
+      widthHeight = gridWidthHeight / gridSize;
       console.log(widthHeight);
       gridSize *= gridSize;
       gridBlocks = gridSize;
@@ -53,8 +58,11 @@ window.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < gridBlocks; i++) {
       const block = document.createElement("div"); //create block
       block.addEventListener("mouseover", fillBlock);
-      block.style.width = widthHeight;
-      block.style.height = widthHeight;
+
+      block.style.display = "block";
+      block.style.float = "left";
+      block.style.width = `${widthHeight}px`;
+      block.style.height = `${widthHeight}px`;
       block.style.backgroundColor = "white";
       block.style.border = "1px solid black";
 
@@ -76,13 +84,17 @@ window.addEventListener("DOMContentLoaded", function () {
       block.style.backgroundColor = "white";
     }
   }
+
+  function eraser() {
+    currentColor = "white";
+  }
   changeGridSize();
   // Adding event listeners
   const clearButton = document.getElementById("clear");
   const eraserButton = document.getElementById("eraser");
   const changeSizeButton = document.getElementById("change-size");
 
-  //eraserButton.addEventListener("click", eraser);
+  eraserButton.addEventListener("click", eraser);
   clearButton.addEventListener("click", clearScreen);
   changeSizeButton.addEventListener("click", changeGridSize);
 });

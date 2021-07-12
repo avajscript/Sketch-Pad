@@ -86,9 +86,6 @@ ul.dropdown {
   box-shadow: none;
 }
 .container {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
   width: calc(var(--block-dimension) * 16);
   height: calc(var(--block-dimension) * 16);
   margin: auto;

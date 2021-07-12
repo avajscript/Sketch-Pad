@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const gridWidthHeight = 640;
   var currentColor = "green";
   var widthHeight = 40;
+  var toggle = 0;
   const colors = {
     yellow: "#ffd60a",
     green: "#009d4e",
@@ -38,6 +39,7 @@ window.addEventListener("DOMContentLoaded", function () {
   })();
   function changeGridSize() {
     let gridSize = document.getElementById("size").value;
+    document.getElementById("size").value = "";
     const blockContainer = document.querySelector(".container");
 
     if (gridSize != "") {
@@ -58,6 +60,7 @@ window.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < gridBlocks; i++) {
       const block = document.createElement("div"); //create block
       block.addEventListener("mouseover", fillBlock);
+      block.addEventListener("click", fillBlockClick);
 
       block.style.display = "block";
       block.style.float = "left";
@@ -75,6 +78,13 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function fillBlock(event) {
     const block = document.getElementById(event.target.id);
+    if (toggle) {
+      block.style.backgroundColor = currentColor;
+    }
+  }
+  function fillBlockClick(event) {
+    const block = document.getElementById(event.target.id);
+
     block.style.backgroundColor = currentColor;
   }
 
@@ -97,4 +107,10 @@ window.addEventListener("DOMContentLoaded", function () {
   eraserButton.addEventListener("click", eraser);
   clearButton.addEventListener("click", clearScreen);
   changeSizeButton.addEventListener("click", changeGridSize);
+  document.body.onmousedown = () => {
+    toggle = 1;
+  };
+  document.body.onmouseup = () => {
+    toggle = 0;
+  };
 });

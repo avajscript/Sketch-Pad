@@ -1,7 +1,9 @@
 # Sketch-Pad
 ### Created for The Odin Project
-https://miscany.github.io/Sketch-Pad/
 ![Image of code](https://i.imgur.com/uDCgsAD.png)
+
+https://miscany.github.io/Sketch-Pad/
+
 ### This took me a good day of work to make. Some of the features include...
 * Selecting colors
 * Click to draw + mouse button down

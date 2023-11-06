@@ -2,7 +2,7 @@
 ### Created for The Odin Project
 ![Image of code](https://i.imgur.com/uDCgsAD.png)
 
-https://miscany.github.io/Sketch-Pad/
+https://avajscript.github.io/Sketch-Pad/
 
 ### This took me a good day of work to make. Some of the features include...
 * Selecting colors
